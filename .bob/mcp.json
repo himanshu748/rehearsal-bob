@@ -2,7 +2,7 @@
   "mcpServers": {
     "rehearsal": {
       "command": "npm",
-      "args": ["run", "--silent", "mcp"],
+      "args": ["--prefix", "${workspaceFolder}", "run", "--silent", "mcp"],
       "disabled": false,
       "timeout": 90000
     }

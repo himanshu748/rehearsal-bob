@@ -2,7 +2,9 @@
 
 A PostgreSQL migration can pass a new-version smoke test and still break older application instances during rollout. Rehearsal executes the old and new query contracts through migration, mixed-version writes, and application rollback. Its MCP server gives IBM Bob the failed SQL and unchanged expectations so a repair can be tested against the same checks.
 
-**Hackathon build in progress.** Bob IDE task evidence and final submission media are still pending. Included reference repairs are authored examples, not claimed live Bob output.
+**[Try the public demo](https://himanshu748.github.io/rehearsal-bob/)** · [Bob IDE task evidence](bob_sessions/)
+
+IBM Bob independently repaired the rename scenario through the local MCP server: the original produced 6 passes / 7 failures; its candidate passed all 13 unchanged checks. The actual SQL and notes are in `candidates/`. Included reference repairs are separate authored examples. Submission media is being finalized.
 
 ## Run
 
@@ -18,7 +20,7 @@ Open the local Vite URL. No credentials or database setup are needed. PostgreSQL
 1. Run the original column-rename proposal.
 2. Observe the passing new-version smoke test and failing old-version contracts.
 3. Open a failed assertion to inspect the SQL and error.
-4. Load the reference repair or paste your own SQL. Run the same checks again.
+4. Load Bob's repair, the separate reference repair, or your own SQL. Run the same checks again.
 5. Export the actual report, including candidate SQL, expected/actual rows, engine version, timing and scope limits.
 
 The other scenarios cover introducing a required field and losing fractional monetary values during a type conversion. The sample orders are original synthetic records.
@@ -33,7 +35,9 @@ Use the browser's **Use with IBM Bob → Copy Bob task** action, or this task:
 
 > Inspect the rename scenario through Rehearsal MCP. Run the proposed migration, diagnose the failed contracts, and write a compatible repair to candidates/rename.sql. Keep the fixtures, engine, and expectations unchanged. Rerun the same checks. Preserve old and new writers and application rollback. Explain the remaining limitations.
 
-Store authentic consumption-summary PNG screenshots for every relevant Bob IDE task in `bob_sessions/`. A placeholder folder does not satisfy the event's evidence requirement.
+The authentic consumption-summary PNG for task `17389f2d5262695ef958a40b057bf1f0` is in `bob_sessions/` (1.35 Bobcoins including the documentation correction follow-up). Bob was instructed not to read the reference solution or alter fixtures/expectations. The engine, interface, MCP server, and reference examples were developed with Codex; the independent candidate and its notes were generated in IBM Bob IDE.
+
+The candidate covers the sampled single-column writes. Conflicting non-null values supplied for both columns on INSERT remain an explicitly documented gap. The standalone SQL requires caller transaction management; Rehearsal wraps migration execution in a transaction.
 
 ## CLI and checks
 

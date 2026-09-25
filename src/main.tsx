@@ -23,6 +23,7 @@ import {
 import { scenarios, type Scenario } from "./core/scenarios";
 import type { Report, Stage, Check as CheckResult } from "./core/engine";
 import { limitations } from "./core/scope";
+import bobRepair from "../candidates/rename.sql?raw";
 import "@fontsource/ibm-plex-sans/latin-400.css";
 import "@fontsource/ibm-plex-sans/latin-500.css";
 import "@fontsource/ibm-plex-sans/latin-600.css";
@@ -202,7 +203,7 @@ function App() {
           </div>
           <div className="sidebar-label">Migration scenarios</div>
           <nav aria-label="Migration scenarios">
-            {scenarios.map((s, i) => (
+            {scenarios.map((s) => (
               <button
                 key={s.id}
                 className={`case ${s.id === scenario.id ? "active" : ""}`}
@@ -210,10 +211,7 @@ function App() {
                 onClick={() => choose(s)}
                 disabled={running}
               >
-                <span className="case-index">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>
+                <span className="case-copy">
                   <strong>{s.name}</strong>
                   <small>{s.short}</small>
                 </span>
@@ -221,28 +219,26 @@ function App() {
               </button>
             ))}
           </nav>
-          <div className="sidebar-bottom">
-            <FlaskConical size={22} />
-            <h3>Break it here first.</h3>
-            <p>
-              Every run starts with fresh sample data. Your production database
-              is never connected.
-            </p>
-            <a href="#scope">
-              What this tests
-              <ArrowRight size={14} />
-            </a>
-          </div>
         </aside>
         <main id="main">
           <div className="page-heading">
             <div>
-              <h1>Test the whole rollout.</h1>
+              <h1>
+                Catch the break.
+                <br />
+                <span>Before the rollout.</span>
+              </h1>
               <p>
                 A migration can pass while older application instances fail.
               </p>
             </div>
-            <span className="engine-label">PostgreSQL · PGlite</span>
+            <div className="execution-note">
+              <FlaskConical size={20} />
+              <div>
+                <strong>A fresh database. Every run.</strong>
+                <span>Original sample data · PostgreSQL / PGlite</span>
+              </div>
+            </div>
           </div>
           {bobOpen && (
             <section className="bob-panel" aria-label="IBM Bob workflow">
@@ -304,16 +300,14 @@ function App() {
                 </div>
                 <button
                   onClick={() =>
-                    document
-                      .getElementById("evidence")
-                      ?.scrollIntoView({
-                        behavior: window.matchMedia(
-                          "(prefers-reduced-motion: reduce)",
-                        ).matches
-                          ? "auto"
-                          : "smooth",
-                        block: "start",
-                      })
+                    document.getElementById("evidence")?.scrollIntoView({
+                      behavior: window.matchMedia(
+                        "(prefers-reduced-motion: reduce)",
+                      ).matches
+                        ? "auto"
+                        : "smooth",
+                      block: "start",
+                    })
                   }
                 >
                   View evidence <ArrowRight size={14} />
@@ -322,37 +316,6 @@ function App() {
             )}
             <div className="workbench">
               <div className="editor-column">
-                <div className="editor-toolbar">
-                  <label htmlFor="migration">Migration SQL</label>
-                  <span className="source-label">{source}</span>
-                </div>
-                <div className="editor-wrap">
-                  <div aria-hidden="true" className="line-numbers">
-                    {sql.split("\n").map((_, i) => (
-                      <span key={i}>{i + 1}</span>
-                    ))}
-                  </div>
-                  <textarea
-                    id="migration"
-                    spellCheck={false}
-                    onScroll={(e) => {
-                      const gutter = e.currentTarget.previousElementSibling;
-                      if (gutter) gutter.scrollTop = e.currentTarget.scrollTop;
-                    }}
-                    maxLength={20000}
-                    value={sql}
-                    disabled={running}
-                    onChange={(e) => {
-                      setSql(e.target.value);
-                      setSource("Custom candidate");
-                    }}
-                    aria-describedby="sql-note"
-                  />
-                </div>
-                <div className="editor-bottom">
-                  <span id="sql-note">Editable · isolated in memory</span>
-                  <span>{sql.split("\n").length} lines</span>
-                </div>
                 <div className="editor-actions">
                   <button
                     className="primary"
@@ -390,7 +353,53 @@ function App() {
                     </button>
                   )}
                 </div>
+                <div className="editor-toolbar">
+                  <label htmlFor="migration">
+                    <FileCode2 size={15} /> migration.sql
+                  </label>
+                  <span className="source-label">{source}</span>
+                </div>
+                <div className="editor-wrap">
+                  <div aria-hidden="true" className="line-numbers">
+                    {sql.split("\n").map((_, i) => (
+                      <span key={i}>{i + 1}</span>
+                    ))}
+                  </div>
+                  <textarea
+                    id="migration"
+                    spellCheck={false}
+                    onScroll={(e) => {
+                      const gutter = e.currentTarget.previousElementSibling;
+                      if (gutter) gutter.scrollTop = e.currentTarget.scrollTop;
+                    }}
+                    maxLength={20000}
+                    value={sql}
+                    disabled={running}
+                    onChange={(e) => {
+                      setSql(e.target.value);
+                      setSource("Custom candidate");
+                    }}
+                    aria-describedby="sql-note"
+                  />
+                </div>
+                <div className="editor-bottom">
+                  <span id="sql-note">Editable · isolated in memory</span>
+                  <span>{sql.split("\n").length} lines</span>
+                </div>
                 <div className="reference">
+                  {scenario.id === "rename" && (
+                    <button
+                      disabled={running}
+                      onClick={() => {
+                        setSql(bobRepair);
+                        setSource("Bob IDE repair");
+                        setError("");
+                      }}
+                    >
+                      <Code2 size={15} /> Load Bob's repair{" "}
+                      <ArrowRight size={15} />
+                    </button>
+                  )}
                   <button
                     onClick={() => loadSql("reference")}
                     disabled={running}
@@ -404,7 +413,7 @@ function App() {
               </div>
               <div className="timeline-column">
                 <div className="timeline-heading">
-                  <h3>Deployment sequence</h3>
+                  <h3>Rehearse the rollout</h3>
                   <span>5 stages</span>
                 </div>
                 <ol className="timeline">
@@ -496,11 +505,7 @@ function App() {
                 <StatusIcon status={report.status} />
               </div>
               <div>
-                <h2>
-                  {report.status === "pass"
-                    ? "All sampled contracts passed"
-                    : "This migration is blocked"}
-                </h2>
+                <h2>Rehearsal evidence</h2>
                 <p>
                   {smoke?.status === "pass" && report.status === "fail"
                     ? "The new-version smoke test passed. The deployment rehearsal found failures."
@@ -541,6 +546,26 @@ function App() {
               <div className="evidence-heading">
                 <h2>{active.title}</h2>
                 <span>Executed query evidence</span>
+              </div>
+              <div
+                className="evidence-tabs"
+                role="group"
+                aria-label="Evidence stage"
+              >
+                {stages.map((stage) => (
+                  <button
+                    key={stage.id}
+                    aria-pressed={active.id === stage.id}
+                    onClick={() => {
+                      setSelected(stage.id);
+                      setDetails(null);
+                    }}
+                    className={`evidence-tab ${stage.status}`}
+                  >
+                    <StatusIcon status={stage.status} />
+                    {stage.title}
+                  </button>
+                ))}
               </div>
               <div className="checks">
                 {active.checks.map((c, i) => (
@@ -622,7 +647,14 @@ function App() {
               className="text-button"
               onClick={() => {
                 setBobOpen(true);
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                window.scrollTo({
+                  top: 0,
+                  behavior: window.matchMedia(
+                    "(prefers-reduced-motion: reduce)",
+                  ).matches
+                    ? "auto"
+                    : "smooth",
+                });
               }}
             >
               Connect your Bob workflow <ArrowUpRight size={14} />

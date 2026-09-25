@@ -4,7 +4,7 @@ A PostgreSQL migration can pass a new-version smoke test and still break older a
 
 **[Try the public demo](https://himanshu748.github.io/rehearsal-bob/)** · [Bob IDE task evidence](bob_sessions/)
 
-IBM Bob independently repaired the rename scenario through the local MCP server: the original produced 6 passes / 7 failures; its candidate passed all 13 unchanged checks. The actual SQL and notes are in `candidates/`. Included reference repairs are separate authored examples. Submission media is being finalized.
+IBM Bob independently repaired the rename scenario through the local MCP server: the original produced 6 passes / 7 failures; its candidate passed all 13 unchanged checks. The actual SQL and notes are in `candidates/`. Included reference repairs are separate authored examples. [Watch the narrated demo and download the slides](https://github.com/himanshu748/rehearsal-bob/releases/tag/v0.1.0). [View the submitted hackathon entry](https://lablab.ai/ai-hackathons/ibm-bob-2-hackathon/rehearsal/rehearsal-test-the-whole-rollout).
 
 ## Run
 

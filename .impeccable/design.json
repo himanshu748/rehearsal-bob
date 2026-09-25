@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-25T15:44:03.516533+00:00",
+  "title": "Design System: Rehearsal",
+  "extensions": {
+    "colorMeta": {
+      "blue": {
+        "role": "primary",
+        "displayName": "Cobalt action",
+        "tonalRamp": [
+          "oklch(15% 0.20470 266.38)",
+          "oklch(26.43% 0.20470 266.38)",
+          "oklch(37.86% 0.20470 266.38)",
+          "oklch(49.29% 0.20470 266.38)",
+          "oklch(60.71% 0.20470 266.38)",
+          "oklch(72.14% 0.20470 266.38)",
+          "oklch(83.57% 0.20470 266.38)",
+          "oklch(95% 0.20470 266.38)"
+        ]
+      },
+      "green": {
+        "role": "secondary",
+        "displayName": "Forest pass",
+        "tonalRamp": [
+          "oklch(15% 0.07782 162.78)",
+          "oklch(26.43% 0.07782 162.78)",
+          "oklch(37.86% 0.07782 162.78)",
+          "oklch(49.29% 0.07782 162.78)",
+          "oklch(60.71% 0.07782 162.78)",
+          "oklch(72.14% 0.07782 162.78)",
+          "oklch(83.57% 0.07782 162.78)",
+          "oklch(95% 0.07782 162.78)"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Oxblood failure",
+        "tonalRamp": [
+          "oklch(15% 0.12817 28.29)",
+          "oklch(26.43% 0.12817 28.29)",
+          "oklch(37.86% 0.12817 28.29)",
+          "oklch(49.29% 0.12817 28.29)",
+          "oklch(60.71% 0.12817 28.29)",
+          "oklch(72.14% 0.12817 28.29)",
+          "oklch(83.57% 0.12817 28.29)",
+          "oklch(95% 0.12817 28.29)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm paper",
+        "tonalRamp": [
+          "oklch(15% 0.00671 97.35)",
+          "oklch(26.43% 0.00671 97.35)",
+          "oklch(37.86% 0.00671 97.35)",
+          "oklch(49.29% 0.00671 97.35)",
+          "oklch(60.71% 0.00671 97.35)",
+          "oklch(72.14% 0.00671 97.35)",
+          "oklch(83.57% 0.00671 97.35)",
+          "oklch(95% 0.00671 97.35)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Dark ink",
+        "tonalRamp": [
+          "oklch(15% 0.01079 139.43)",
+          "oklch(26.43% 0.01079 139.43)",
+          "oklch(37.86% 0.01079 139.43)",
+          "oklch(49.29% 0.01079 139.43)",
+          "oklch(60.71% 0.01079 139.43)",
+          "oklch(72.14% 0.01079 139.43)",
+          "oklch(83.57% 0.01079 139.43)",
+          "oklch(95% 0.01079 139.43)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Quiet ink",
+        "tonalRamp": [
+          "oklch(15% 0.01624 138.72)",
+          "oklch(26.43% 0.01624 138.72)",
+          "oklch(37.86% 0.01624 138.72)",
+          "oklch(49.29% 0.01624 138.72)",
+          "oklch(60.71% 0.01624 138.72)",
+          "oklch(72.14% 0.01624 138.72)",
+          "oklch(83.57% 0.01624 138.72)",
+          "oklch(95% 0.01624 138.72)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Worksheet rule",
+        "tonalRamp": [
+          "oklch(15% 0.01385 120.30)",
+          "oklch(26.43% 0.01385 120.30)",
+          "oklch(37.86% 0.01385 120.30)",
+          "oklch(49.29% 0.01385 120.30)",
+          "oklch(60.71% 0.01385 120.30)",
+          "oklch(72.14% 0.01385 120.30)",
+          "oklch(83.57% 0.01385 120.30)",
+          "oklch(95% 0.01385 120.30)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Raised paper",
+        "tonalRamp": [
+          "oklch(15% 0.00395 106.47)",
+          "oklch(26.43% 0.00395 106.47)",
+          "oklch(37.86% 0.00395 106.47)",
+          "oklch(49.29% 0.00395 106.47)",
+          "oklch(60.71% 0.00395 106.47)",
+          "oklch(72.14% 0.00395 106.47)",
+          "oklch(83.57% 0.00395 106.47)",
+          "oklch(95% 0.00395 106.47)"
+        ]
+      },
+      "editor": {
+        "role": "neutral",
+        "displayName": "SQL paper",
+        "tonalRamp": [
+          "oklch(15% 0.00933 113.16)",
+          "oklch(26.43% 0.00933 113.16)",
+          "oklch(37.86% 0.00933 113.16)",
+          "oklch(49.29% 0.00933 113.16)",
+          "oklch(60.71% 0.00933 113.16)",
+          "oklch(72.14% 0.00933 113.16)",
+          "oklch(83.57% 0.00933 113.16)",
+          "oklch(95% 0.00933 113.16)"
+        ]
+      },
+      "active-case": {
+        "role": "neutral",
+        "displayName": "Selected sage",
+        "tonalRamp": [
+          "oklch(15% 0.01757 117.30)",
+          "oklch(26.43% 0.01757 117.30)",
+          "oklch(37.86% 0.01757 117.30)",
+          "oklch(49.29% 0.01757 117.30)",
+          "oklch(60.71% 0.01757 117.30)",
+          "oklch(72.14% 0.01757 117.30)",
+          "oklch(83.57% 0.01757 117.30)",
+          "oklch(95% 0.01757 117.30)"
+        ]
+      },
+      "pass-wash": {
+        "role": "secondary",
+        "displayName": "Pass wash",
+        "tonalRamp": [
+          "oklch(15% 0.01549 126.82)",
+          "oklch(26.43% 0.01549 126.82)",
+          "oklch(37.86% 0.01549 126.82)",
+          "oklch(49.29% 0.01549 126.82)",
+          "oklch(60.71% 0.01549 126.82)",
+          "oklch(72.14% 0.01549 126.82)",
+          "oklch(83.57% 0.01549 126.82)",
+          "oklch(95% 0.01549 126.82)"
+        ]
+      },
+      "fail-wash": {
+        "role": "secondary",
+        "displayName": "Failure wash",
+        "tonalRamp": [
+          "oklch(15% 0.01440 50.80)",
+          "oklch(26.43% 0.01440 50.80)",
+          "oklch(37.86% 0.01440 50.80)",
+          "oklch(49.29% 0.01440 50.80)",
+          "oklch(60.71% 0.01440 50.80)",
+          "oklch(72.14% 0.01440 50.80)",
+          "oklch(83.57% 0.01440 50.80)",
+          "oklch(95% 0.01440 50.80)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Experiment titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sequence heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Scenario descriptions."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Actions and phase titles."
+      },
+      "sql": {
+        "displayName": "Sql",
+        "purpose": "Editor and synchronized line numbers."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "button-transition",
+        "value": "background .18s, color .18s",
+        "purpose": "Brief action-state transitions; disabled by reduced-motion CSS."
+      },
+      {
+        "name": "running-spinner",
+        "value": "spin 1s linear infinite",
+        "purpose": "Only while execution is active; disabled by reduced-motion CSS."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-max",
+        "value": "640px"
+      },
+      {
+        "name": "tablet-max",
+        "value": "900px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1150px"
+      },
+      {
+        "name": "wide-desktop-min",
+        "value": "1500px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Run rehearsal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Compact primary action.",
+      "html": "<button class=\"ds-primary\">Run rehearsal</button>",
+      "css": ".ds-primary{font-family:'IBM Plex Sans',sans-serif;background:var(--blue,#2446c8);color:white;border:0;padding:12px 17px;border-radius:3px;font-size:12px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.ds-primary:hover:not(:disabled){filter:brightness(.93)}.ds-primary:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}.ds-primary:disabled{opacity:.55;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Export evidence",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Compact secondary action.",
+      "html": "<button class=\"ds-secondary\">Export evidence</button>",
+      "css": ".ds-secondary{font-family:'IBM Plex Sans',sans-serif;background:#fcfcf9;color:var(--ink,#232722);border:1px solid var(--line,#d9dcd2);padding:12px 17px;border-radius:3px;font-size:12px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.ds-secondary:hover:not(:disabled){filter:brightness(.93)}.ds-secondary:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}.ds-secondary:disabled{opacity:.55;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Open-background supporting action.",
+      "html": "<button class=\"ds-text\">Reset SQL</button>",
+      "css": ".ds-text{font-family:'IBM Plex Sans',sans-serif;border:0;background:none;color:var(--ink,#232722);font-size:13px;padding:9px 0;cursor:pointer;transition:background .18s,color .18s}.ds-text:hover{filter:brightness(.93)}.ds-text:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-text{transition:none}}"
+    },
+    {
+      "name": "SQL editor",
+      "kind": "input",
+      "refersTo": "sql-editor",
+      "description": "Native labeled SQL field; full application adds synchronized line numbers.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-sql\">Migration SQL</label><textarea class=\"ds-sql\" id=\"ds-sql\" spellcheck=\"false\">ALTER TABLE orders ADD COLUMN status text;</textarea>",
+      "css": ".ds-field-label{display:block;font-family:'IBM Plex Sans',sans-serif;font-size:12px;margin-bottom:13px;color:var(--ink,#232722)}.ds-sql{font-family:\"IBM Plex Mono\",monospace;font-size:13px;line-height:1.7;background:#f1f2eb;color:#334820;border:1px solid #e0e3d8;border-radius:3px;padding:15px 13px;resize:none;width:90%;height:130px;white-space:pre;overflow:auto;caret-color:var(--blue,#2446c8)}.ds-sql:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}"
+    },
+    {
+      "name": "Scenario navigation",
+      "kind": "nav",
+      "refersTo": "case-selected",
+      "description": "Quiet filled selection with visible title and description.",
+      "html": "<nav aria-label=\"Migration scenarios\"><button class=\"ds-case\" aria-current=\"true\"><strong>Rename a column</strong><small>Mixed application versions</small></button></nav>",
+      "css": ".ds-case{font-family:'IBM Plex Sans',sans-serif;border:0;background:#e8ebde;color:var(--ink,#232722);padding:16px 12px;border-radius:4px;text-align:left;width:100%;cursor:pointer}.ds-case strong{display:block;font-size:12px;font-weight:500}.ds-case small{display:block;font-size:10px;color:var(--muted,#676e65);margin-top:5px}.ds-case:hover{filter:brightness(.93)}.ds-case:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:640px){.ds-case small{font-size:11px;line-height:1.35}}"
+    },
+    {
+      "name": "Candidate provenance",
+      "kind": "chip",
+      "refersTo": "source-label",
+      "description": "Neutral, noninteractive source label.",
+      "html": "<span class=\"ds-source\">Original proposal</span>",
+      "css": ".ds-source{font-family:'IBM Plex Sans',sans-serif;display:inline-block;background:#eeeee7;color:#565d54;font-size:10px;padding:4px 6px;border-radius:3px}@media(max-width:640px){.ds-source{font-size:12px}}"
+    },
+    {
+      "name": "Experiment container",
+      "kind": "card",
+      "refersTo": "experiment",
+      "description": "Main worksheet boundary with ruled internal content.",
+      "html": "<section class=\"ds-experiment\"><h2 class=\"ds-title\">Migration rehearsal</h2><p class=\"ds-copy\">Execute a candidate against the sampled application contracts.</p><div class=\"ds-region\">Migration SQL and deployment sequence</div></section>",
+      "css": ".ds-experiment{font-family:'IBM Plex Sans',sans-serif;background:#fcfcf9;color:var(--ink,#232722);border:1px solid var(--line,#d9dcd2);border-radius:5px;overflow:hidden}.ds-title{font-size:20px;font-weight:500;letter-spacing:-.015em;margin:0;padding:24px 25px 0}.ds-copy{font-size:13px;line-height:1.55;color:var(--muted,#676e65);margin:0;padding:10px 25px 23px;max-width:75ch}.ds-region{border-top:1px solid var(--line,#d9dcd2);padding:20px 22px;font-size:12px}"
+    },
+    {
+      "name": "Completed phase",
+      "kind": "custom",
+      "refersTo": "phase-row",
+      "description": "Selected chronological stage with explicit passing status.",
+      "html": "<button class=\"ds-phase\"><span class=\"ds-symbol\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"m9 12 2 2 4-4\"/></svg></span><span class=\"ds-phase-copy\"><strong>New-version smoke test</strong><small>2/2 checks passed</small></span><span class=\"ds-state\">Passed</span></button>",
+      "css": ".ds-phase{font-family:'IBM Plex Sans',sans-serif;display:flex;width:100%;align-items:center;gap:12px;text-align:left;padding:12px 9px 12px 7px;border:1px solid #d8dbcf;border-radius:4px;min-height:67px;background:#efefe7;color:var(--ink,#232722);cursor:pointer}.ds-symbol{width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:#e4eee3;color:var(--green,#216046);border:1px solid #e4eee3}.ds-phase-copy{flex:1}.ds-phase-copy strong{display:block;font-size:12px;font-weight:500}.ds-phase-copy small{display:block;font-size:10px;color:var(--muted,#676e65);line-height:1.4;margin-top:4px}.ds-state{color:var(--green,#216046);font-size:10px;min-width:65px;text-align:right}.ds-phase:hover{filter:brightness(.93)}.ds-phase:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:640px){.ds-phase{min-height:77px}.ds-phase-copy small,.ds-state{font-size:12px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Engineering Verification Worksheet",
+    "overview": "Warm paper, dark ink, and ruled rows make the interface feel like a working engineering document. Compact controls sit beside readable SQL and a fixed sequence of deployment phases; precision comes from alignment and restrained emphasis.\n\nThe surface is built directly from type, borders, and semantic color. Results earn their visual emphasis through executed checks. The recurring signature is a chronological phase list paired with inspectable query evidence, including expected and actual output.",
+    "keyCharacteristics": [
+      "Warm neutral surfaces with restrained cobalt actions.",
+      "Ruled evidence rows and compact, aligned controls.",
+      "IBM Plex Sans for interface language; IBM Plex Mono for SQL and measured data.",
+      "Flat surfaces with visible status text and icons."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Color Rule",
+        "body": "Use green and oxblood for actual pass and failure states, accompanied by text and icons. Cobalt marks actions, focus, and execution in progress.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use Plex Sans for the interface and Plex Mono for SQL, query timing, and report metadata.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Surface Rule",
+        "body": "Separate neighboring work areas with thin borders and tonal shifts; this implementation uses no shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep candidate provenance visible next to the SQL editor.",
+      "Do preserve status words and icons alongside semantic color.",
+      "Do let SQL scroll inside its own container and stack the workbench on narrow screens.",
+      "Do retain keyboard focus outlines and the reduced-motion override."
+    ],
+    "donts": [
+      "Don't present a passing state before a run produces evidence.",
+      "Don't attribute the included reference repair to a live Bob run.",
+      "Don't turn small desktop metadata into the default reading size for new body copy."
+    ]
+  }
+}

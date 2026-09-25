@@ -306,7 +306,14 @@ function App() {
                   onClick={() =>
                     document
                       .getElementById("evidence")
-                      ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                      ?.scrollIntoView({
+                        behavior: window.matchMedia(
+                          "(prefers-reduced-motion: reduce)",
+                        ).matches
+                          ? "auto"
+                          : "smooth",
+                        block: "start",
+                      })
                   }
                 >
                   View evidence <ArrowRight size={14} />
@@ -417,7 +424,11 @@ function App() {
                             document
                               .getElementById("evidence")
                               ?.scrollIntoView({
-                                behavior: "smooth",
+                                behavior: window.matchMedia(
+                                  "(prefers-reduced-motion: reduce)",
+                                ).matches
+                                  ? "auto"
+                                  : "smooth",
                                 block: "start",
                               });
                           }}

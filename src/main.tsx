@@ -23,6 +23,7 @@ import {
 import { scenarios, type Scenario } from "./core/scenarios";
 import type { Report, Stage, Check as CheckResult } from "./core/engine";
 import { limitations } from "./core/scope";
+import { SqlEditor } from "./SqlEditor";
 import bobRepair from "../candidates/rename.sql?raw";
 import "@fontsource/ibm-plex-sans/latin-400.css";
 import "@fontsource/ibm-plex-sans/latin-500.css";
@@ -175,6 +176,9 @@ function App() {
   }
   return (
     <div className="app">
+      <a className="skip-link" href="#main">
+        Skip to workbench
+      </a>
       <header className="topbar">
         <a href="#main" className="brand">
           <span className="brandmark">
@@ -186,41 +190,19 @@ function App() {
           <span className="status-dot" />
           Local PostgreSQL sandbox
         </div>
-        <button className="text-button" onClick={() => setBobOpen(!bobOpen)}>
+        <button
+          className="text-button"
+          aria-expanded={bobOpen}
+          aria-controls="bob-workflow"
+          onClick={() => setBobOpen(!bobOpen)}
+        >
           <Code2 size={16} />
           Use with IBM Bob
           <ArrowUpRight size={15} />
         </button>
       </header>
       <div className="workspace">
-        <aside className="sidebar">
-          <div className="project">
-            <Database size={19} />
-            <div>
-              <strong>Orders service</strong>
-              <span>Synthetic sample project</span>
-            </div>
-          </div>
-          <div className="sidebar-label">Migration scenarios</div>
-          <nav aria-label="Migration scenarios">
-            {scenarios.map((s) => (
-              <button
-                key={s.id}
-                className={`case ${s.id === scenario.id ? "active" : ""}`}
-                aria-current={s.id === scenario.id ? "true" : undefined}
-                onClick={() => choose(s)}
-                disabled={running}
-              >
-                <span className="case-copy">
-                  <strong>{s.name}</strong>
-                  <small>{s.short}</small>
-                </span>
-                {s.id === scenario.id && <ChevronRight size={15} />}
-              </button>
-            ))}
-          </nav>
-        </aside>
-        <main id="main">
+        <main id="main" tabIndex={-1}>
           <div className="page-heading">
             <div>
               <h1>
@@ -240,8 +222,39 @@ function App() {
               </div>
             </div>
           </div>
+          <aside className="sidebar">
+            <div className="project">
+              <Database size={19} />
+              <div>
+                <strong>Orders service</strong>
+                <span>Synthetic sample project</span>
+              </div>
+            </div>
+            <div className="sidebar-label">Migration scenarios</div>
+            <nav aria-label="Migration scenarios">
+              {scenarios.map((s) => (
+                <button
+                  key={s.id}
+                  className={`case ${s.id === scenario.id ? "active" : ""}`}
+                  aria-current={s.id === scenario.id ? "true" : undefined}
+                  onClick={() => choose(s)}
+                  disabled={running}
+                >
+                  <span className="case-copy">
+                    <strong>{s.name}</strong>
+                    <small>{s.short}</small>
+                  </span>
+                  {s.id === scenario.id && <ChevronRight size={15} />}
+                </button>
+              ))}
+            </nav>
+          </aside>
           {bobOpen && (
-            <section className="bob-panel" aria-label="IBM Bob workflow">
+            <section
+              id="bob-workflow"
+              className="bob-panel"
+              aria-label="IBM Bob workflow"
+            >
               <div>
                 <h2>Give Bob the failure. Keep the tests.</h2>
                 <p>
@@ -275,7 +288,9 @@ function App() {
                 <FileCode2 size={20} />
                 <h2>{scenario.name}</h2>
               </div>
-              <span className="sample-label">Synthetic sample</span>
+              <span className="sample-label">
+                <Database size={14} /> Synthetic sample
+              </span>
             </div>
             <p className="scenario-description">{scenario.description}</p>
             {report && (
@@ -359,32 +374,24 @@ function App() {
                   </label>
                   <span className="source-label">{source}</span>
                 </div>
-                <div className="editor-wrap">
-                  <div aria-hidden="true" className="line-numbers">
-                    {sql.split("\n").map((_, i) => (
-                      <span key={i}>{i + 1}</span>
-                    ))}
-                  </div>
-                  <textarea
-                    id="migration"
-                    spellCheck={false}
-                    onScroll={(e) => {
-                      const gutter = e.currentTarget.previousElementSibling;
-                      if (gutter) gutter.scrollTop = e.currentTarget.scrollTop;
-                    }}
-                    maxLength={20000}
-                    value={sql}
-                    disabled={running}
-                    onChange={(e) => {
-                      setSql(e.target.value);
-                      setSource("Custom candidate");
-                    }}
-                    aria-describedby="sql-note"
-                  />
-                </div>
+                <SqlEditor
+                  value={sql}
+                  disabled={running}
+                  onRun={run}
+                  onChange={(value) => {
+                    setSql(value);
+                    setSource("Custom candidate");
+                  }}
+                />
                 <div className="editor-bottom">
                   <span id="sql-note">Editable · isolated in memory</span>
-                  <span>{sql.split("\n").length} lines</span>
+                  <span>
+                    {sql.split("\n").length}{" "}
+                    {sql.split("\n").length === 1 ? "line" : "lines"}{" "}
+                    <span className="keyboard-hint">
+                      · Ctrl / ⌘ Enter to run
+                    </span>
+                  </span>
                 </div>
                 <div className="reference">
                   {scenario.id === "rename" && (
@@ -443,7 +450,11 @@ function App() {
                           }}
                         >
                           <span className="phase-symbol">
-                            <StatusIcon status={state} />
+                            {state === "pending" ? (
+                              <span className="phase-number">{i + 1}</span>
+                            ) : (
+                              <StatusIcon status={state} />
+                            )}
                           </span>
                           <span className="phase-copy">
                             <strong>{def.title}</strong>

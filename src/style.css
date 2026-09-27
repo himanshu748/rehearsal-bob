@@ -12,6 +12,13 @@
   --green: #216046;
   --red: #983a31;
   --surface: #fcfcf9;
+  --editor: #242c29;
+  --editor-text: #edf3e9;
+  --active-case: #e7eadf;
+  --pass-wash: #edf2e7;
+  --fail-wash: #f9eee8;
+  --radius-panel: 12px;
+  --radius-control: 6px;
 }
 * {
   box-sizing: border-box;
@@ -79,8 +86,8 @@ p {
   margin: 0;
 }
 h1 {
-  font-size: 42px;
-  line-height: 1.08;
+  font-size: clamp(36px, 3.6vw, 52px);
+  line-height: 1.12;
   letter-spacing: -0.035em;
   font-weight: 500;
   text-wrap: balance;
@@ -89,7 +96,7 @@ h1 span {
   color: var(--muted);
 }
 h2 {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.02em;
 }
@@ -118,17 +125,17 @@ textarea,
   border-radius: 8px;
 }
 .topbar {
-  height: 68px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 max(32px, calc((100vw - 1300px) / 2));
   border-bottom: 1px solid var(--line);
-  background: var(--surface);
+  background: var(--paper);
   gap: 20px;
 }
 .brand {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
   letter-spacing: -0.04em;
   display: flex;
@@ -139,13 +146,13 @@ textarea,
   text-decoration: none;
 }
 .brandmark {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
   background: var(--ink);
   color: var(--paper);
-  border-radius: 50%;
+  border-radius: 9px;
 }
 .brand-dot {
   color: var(--blue);
@@ -174,9 +181,10 @@ textarea,
 }
 .topbar > .text-button {
   border: 1px solid var(--line);
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   padding: 10px 14px;
   background: var(--surface);
+  min-height: 44px;
 }
 .workspace {
   max-width: 1364px;
@@ -187,14 +195,16 @@ textarea,
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--line);
-  gap: 30px;
-  padding: 14px 0;
+  gap: 24px;
+  padding: 16px 0;
+  margin-bottom: 24px;
+  border-top: 1px solid var(--line);
 }
 .project {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 195px;
+  min-width: 182px;
 }
 .project > svg {
   color: var(--muted);
@@ -223,14 +233,14 @@ textarea,
   align-items: center;
   gap: 12px;
   text-align: left;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   min-width: 0;
 }
 .case.active {
-  background: #e7eadf;
-  border-color: #d0d6c6;
+  background: var(--active-case);
+  border-color: #c5ccba;
 }
 .case:not(.active):hover {
   background: #edeee7;
@@ -240,7 +250,7 @@ textarea,
 }
 .case strong {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 .case small {
@@ -253,7 +263,7 @@ textarea,
   color: var(--green);
 }
 main {
-  padding: 28px 0 0;
+  padding: 38px 0 0;
   min-width: 0;
 }
 .page-heading {
@@ -261,12 +271,12 @@ main {
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 26px;
+  margin-bottom: 30px;
 }
 .page-heading p {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--muted);
-  margin-top: 16px;
+  margin-top: 14px;
   max-width: 60ch;
 }
 .execution-note {
@@ -292,7 +302,7 @@ main {
 .experiment {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-panel);
   overflow: hidden;
 }
 .experiment-head {
@@ -314,16 +324,19 @@ main {
   font-size: 12px;
   color: var(--muted);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 .scenario-description {
   padding: 8px 28px 22px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
   max-width: 85ch;
 }
 .workbench {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 1fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(380px, 1fr);
   border-top: 1px solid var(--line);
 }
 .editor-column {
@@ -338,8 +351,8 @@ main {
   gap: 12px;
   background: #242c29;
   color: #eaf0e7;
-  padding: 13px 16px;
-  border-radius: 5px 5px 0 0;
+  padding: 15px 18px;
+  border-radius: 8px 8px 0 0;
   border-bottom: 1px solid #3b4540;
   font-size: 13px;
 }
@@ -352,25 +365,25 @@ main {
   font-size: 11px;
   color: #c9d2cb;
   border: 1px solid #515c55;
-  padding: 3px 7px;
+  padding: 4px 8px;
   border-radius: 3px;
   white-space: nowrap;
 }
 .editor-wrap {
   display: flex;
-  height: 202px;
+  height: 274px;
   background: #242c29;
   overflow: hidden;
 }
 .line-numbers {
-  padding: 16px 12px 16px 16px;
+  padding: 18px 14px 18px 16px;
   display: flex;
   flex-direction: column;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
   color: #9eafa2;
   overflow: hidden;
-  min-width: 43px;
+  min-width: 48px;
   text-align: right;
 }
 .editor-wrap textarea {
@@ -379,13 +392,17 @@ main {
   background: transparent;
   width: 100%;
   min-width: 0;
-  padding: 16px 16px 16px 0;
-  font-size: 13px;
+  padding: 18px 18px 18px 0;
+  font-size: 14px;
   line-height: 1.8;
-  color: #edf3e9;
+  color: transparent;
   caret-color: #bbcaff;
   white-space: pre;
   overflow: auto;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  -webkit-text-fill-color: transparent;
 }
 .editor-wrap textarea:focus-visible {
   outline-offset: -3px;
@@ -399,7 +416,8 @@ main {
   border-top: 1px solid #3b4540;
   font-size: 11px;
   color: #b7c5ba;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 8px 8px;
+  gap: 12px;
 }
 .editor-actions {
   display: flex;
@@ -419,10 +437,12 @@ main {
   padding: 13px 20px;
   border-radius: 4px;
   white-space: nowrap;
+  min-height: 44px;
 }
 .primary {
   background: var(--blue);
   color: white;
+  min-height: 46px;
 }
 .secondary {
   border: 1px solid var(--line);
@@ -432,10 +452,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 18px;
+  gap: 0 18px;
   border-top: 1px solid var(--line);
-  padding-top: 17px;
-  margin-top: 20px;
+  padding-top: 10px;
+  margin-top: 16px;
 }
 .reference button {
   display: flex;
@@ -444,10 +464,12 @@ main {
   padding: 0;
   color: var(--blue);
   font-size: 13px;
+  min-height: 40px;
 }
 .reference p {
   font-size: 12px;
   color: var(--muted);
+  flex-basis: 100%;
 }
 .timeline-column {
   padding: 24px 28px;
@@ -456,7 +478,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 13px;
+  margin-bottom: 20px;
+  min-height: 26px;
 }
 .timeline-heading > span {
   font-size: 12px;
@@ -475,7 +498,7 @@ main {
   position: absolute;
   top: 35px;
   bottom: -12px;
-  left: 22px;
+  left: 23px;
   width: 1px;
   background: var(--line);
 }
@@ -487,9 +510,9 @@ main {
   width: 100%;
   text-align: left;
   padding: 12px 10px 12px 8px;
-  min-height: 71px;
+  min-height: 76px;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
 }
 .phase:disabled {
   opacity: 1;
@@ -500,8 +523,8 @@ main {
   border-color: #d9dfd0;
 }
 .phase-symbol {
-  width: 27px;
-  height: 27px;
+  width: 29px;
+  height: 29px;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -529,7 +552,7 @@ main {
 }
 .phase-copy strong {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
 }
 .phase-copy small {
@@ -580,7 +603,7 @@ main {
   align-items: center;
   gap: 14px;
   border-top: 1px solid #e4c3b8;
-  padding: 17px 28px;
+  padding: 18px 28px;
   background: #f9eee8;
   color: var(--red);
   font-size: 14px;
@@ -619,8 +642,8 @@ main {
   display: flex;
   gap: 13px;
   align-items: flex-start;
-  padding: 24px 0;
-  margin-top: 14px;
+  padding: 30px 0;
+  margin-top: 12px;
   border-bottom: 1px solid var(--line);
 }
 .verdict-icon {
@@ -686,9 +709,10 @@ main {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  padding: 8px 10px;
+  padding: 9px 12px;
   border: 1px solid var(--line);
   border-radius: 4px;
+  min-height: 40px;
 }
 .evidence-tab[aria-pressed="true"] {
   background: var(--ink);
@@ -716,7 +740,7 @@ main {
   width: 100%;
   align-items: center;
   gap: 14px;
-  padding: 17px 12px;
+  padding: 19px 16px;
   text-align: left;
   font-size: 14px;
 }
@@ -740,7 +764,7 @@ main {
   color: var(--muted);
 }
 .query-details {
-  padding: 18px 24px 10px;
+  padding: 22px 24px 12px;
   background: #fafaf5;
 }
 .query-details label {
@@ -806,6 +830,7 @@ pre {
   cursor: pointer;
   color: var(--ink);
   font-size: 13px;
+  min-height: 44px;
 }
 .scope ul {
   padding-left: 18px;
@@ -855,8 +880,10 @@ pre {
   color: #4e5c7c;
 }
 .icon-button {
-  padding: 2px;
+  padding: 10px;
   display: flex;
+  min-width: 40px;
+  min-height: 40px;
 }
 .error {
   display: flex;
@@ -895,6 +922,86 @@ footer button.text-button {
     transform: rotate(360deg);
   }
 }
+
+.skip-link {
+  position: absolute;
+  top: -80px;
+  left: 20px;
+  z-index: 10;
+  padding: 12px 18px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--radius-control);
+}
+.skip-link:focus {
+  top: 12px;
+}
+.sql-input {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+.sql-highlight {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 18px 18px 18px 0;
+  max-height: none;
+  font:
+    14px/1.8 "IBM Plex Mono",
+    monospace;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
+  word-break: normal;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--editor-text);
+  pointer-events: none;
+}
+.sql-keyword {
+  color: #b9c8ff;
+}
+.sql-string {
+  color: #dce8a7;
+}
+.sql-number {
+  color: #f5c69e;
+}
+.sql-comment {
+  color: #a6b9ab;
+}
+.editor-wrap textarea::selection {
+  background: #4a577b;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+.phase-number {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.keyboard-hint {
+  white-space: nowrap;
+}
+.case.active strong {
+  color: #263c2b;
+}
+.experiment:focus-within {
+  border-color: #aeb8a5;
+}
+@media (forced-colors: active) {
+  .editor-wrap textarea {
+    color: CanvasText;
+    -webkit-text-fill-color: CanvasText;
+  }
+  .sql-highlight {
+    display: none;
+  }
+}
+
 @media (max-width: 1050px) {
   .workspace {
     padding: 0 24px;
@@ -977,7 +1084,7 @@ footer button.text-button {
     border-bottom: 1px solid var(--line);
   }
   .editor-wrap {
-    height: 210px;
+    height: 250px;
   }
   .timeline-column {
     padding: 24px;
@@ -1107,11 +1214,15 @@ footer button.text-button {
     font-size: 10px;
   }
   .editor-wrap {
-    height: 180px;
+    height: 220px;
   }
   .editor-wrap textarea,
+  .sql-highlight,
   .line-numbers {
     font-size: 13px;
+  }
+  .keyboard-hint {
+    display: none;
   }
   .editor-bottom {
     padding: 10px 12px;

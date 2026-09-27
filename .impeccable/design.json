@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-25T16:20:35.216423+00:00",
+  "generatedAt": "2026-09-27T05:29:20.388232+00:00",
   "title": "Design System: Rehearsal",
   "extensions": {
     "colorMeta": {
@@ -185,6 +185,90 @@
           "oklch(83.57% 0.01467 132.47)",
           "oklch(95% 0.01467 132.47)"
         ]
+      },
+      "sql-keyword": {
+        "role": "neutral",
+        "displayName": "Sql keyword",
+        "tonalRamp": [
+          "oklch(15% 0.07894 272.74)",
+          "oklch(26.43% 0.07894 272.74)",
+          "oklch(37.86% 0.07894 272.74)",
+          "oklch(49.29% 0.07894 272.74)",
+          "oklch(60.71% 0.07894 272.74)",
+          "oklch(72.14% 0.07894 272.74)",
+          "oklch(83.57% 0.07894 272.74)",
+          "oklch(95% 0.07894 272.74)"
+        ]
+      },
+      "sql-string": {
+        "role": "neutral",
+        "displayName": "Sql string",
+        "tonalRamp": [
+          "oklch(15% 0.08530 116.64)",
+          "oklch(26.43% 0.08530 116.64)",
+          "oklch(37.86% 0.08530 116.64)",
+          "oklch(49.29% 0.08530 116.64)",
+          "oklch(60.71% 0.08530 116.64)",
+          "oklch(72.14% 0.08530 116.64)",
+          "oklch(83.57% 0.08530 116.64)",
+          "oklch(95% 0.08530 116.64)"
+        ]
+      },
+      "sql-number": {
+        "role": "neutral",
+        "displayName": "Sql number",
+        "tonalRamp": [
+          "oklch(15% 0.07530 61.96)",
+          "oklch(26.43% 0.07530 61.96)",
+          "oklch(37.86% 0.07530 61.96)",
+          "oklch(49.29% 0.07530 61.96)",
+          "oklch(60.71% 0.07530 61.96)",
+          "oklch(72.14% 0.07530 61.96)",
+          "oklch(83.57% 0.07530 61.96)",
+          "oklch(95% 0.07530 61.96)"
+        ]
+      },
+      "sql-comment": {
+        "role": "neutral",
+        "displayName": "Sql comment",
+        "tonalRamp": [
+          "oklch(15% 0.02876 153.72)",
+          "oklch(26.43% 0.02876 153.72)",
+          "oklch(37.86% 0.02876 153.72)",
+          "oklch(49.29% 0.02876 153.72)",
+          "oklch(60.71% 0.02876 153.72)",
+          "oklch(72.14% 0.02876 153.72)",
+          "oklch(83.57% 0.02876 153.72)",
+          "oklch(95% 0.02876 153.72)"
+        ]
+      },
+      "sql-selection": {
+        "role": "neutral",
+        "displayName": "Sql selection",
+        "tonalRamp": [
+          "oklch(15% 0.06118 268.69)",
+          "oklch(26.43% 0.06118 268.69)",
+          "oklch(37.86% 0.06118 268.69)",
+          "oklch(49.29% 0.06118 268.69)",
+          "oklch(60.71% 0.06118 268.69)",
+          "oklch(72.14% 0.06118 268.69)",
+          "oklch(83.57% 0.06118 268.69)",
+          "oklch(95% 0.06118 268.69)"
+        ]
+      },
+      "sql-selection-text": {
+        "role": "neutral",
+        "displayName": "Sql selection text",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
       }
     },
     "typographyMeta": {
@@ -202,7 +286,7 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Scenario descriptions, report explanations, and query rows."
+        "purpose": "Report explanations and query rows; scenario descriptions use a local 15px treatment."
       },
       "label": {
         "displayName": "Label",
@@ -210,7 +294,11 @@
       },
       "sql": {
         "displayName": "Sql",
-        "purpose": "Editor and synchronized line numbers."
+        "purpose": "14px desktop editor, highlight layer, and synchronized gutter; 13px phone treatment."
+      },
+      "intro": {
+        "displayName": "Intro",
+        "purpose": "Introductory sentence below the fluid hero."
       }
     },
     "shadows": [],
@@ -252,7 +340,7 @@
       "refersTo": "button-primary",
       "description": "Direct primary action.",
       "html": "<button class=\"ds-primary\">Run rehearsal</button>",
-      "css": ".ds-primary{font-family:'IBM Plex Sans',sans-serif;background:var(--blue,#2446c8);color:white;border:0;padding:13px 20px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.ds-primary:hover:not(:disabled){filter:brightness(.94)}.ds-primary:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}.ds-primary:disabled{opacity:.55;cursor:not-allowed}@media(max-width:480px){.ds-primary{padding:12px 16px}}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+      "css": ".ds-primary{font-family:'IBM Plex Sans',sans-serif;background:var(--blue,#2446c8);color:white;border:0;min-height:46px;padding:13px 20px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.ds-primary:hover:not(:disabled){filter:brightness(.94)}.ds-primary:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}.ds-primary:disabled{opacity:.55;cursor:not-allowed}@media(max-width:480px){.ds-primary{padding:12px 16px}}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
     },
     {
       "name": "Export evidence",
@@ -260,7 +348,7 @@
       "refersTo": "button-secondary",
       "description": "Direct secondary action.",
       "html": "<button class=\"ds-secondary\">Export evidence</button>",
-      "css": ".ds-secondary{font-family:'IBM Plex Sans',sans-serif;background:var(--surface,#fcfcf9);color:var(--ink,#232722);border:1px solid var(--line,#d9dcd2);padding:13px 20px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.ds-secondary:hover:not(:disabled){filter:brightness(.94)}.ds-secondary:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}.ds-secondary:disabled{opacity:.55;cursor:not-allowed}@media(max-width:480px){.ds-secondary{padding:12px 16px}}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
+      "css": ".ds-secondary{font-family:'IBM Plex Sans',sans-serif;background:var(--surface,#fcfcf9);color:var(--ink,#232722);border:1px solid var(--line,#d9dcd2);min-height:44px;padding:13px 20px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.ds-secondary:hover:not(:disabled){filter:brightness(.94)}.ds-secondary:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}.ds-secondary:disabled{opacity:.55;cursor:not-allowed}@media(max-width:480px){.ds-secondary{padding:12px 16px}}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
     },
     {
       "name": "Text action",
@@ -274,17 +362,17 @@
       "name": "SQL editor",
       "kind": "input",
       "refersTo": "sql-editor",
-      "description": "Dark native SQL field; full application adds synchronized line numbers and actions above.",
-      "html": "<div class=\"ds-editor\"><label class=\"ds-field-label\" for=\"ds-sql\">migration.sql</label><textarea class=\"ds-sql\" id=\"ds-sql\" spellcheck=\"false\">ALTER TABLE orders ADD COLUMN status text;</textarea><div class=\"ds-editor-foot\">Editable \u00b7 isolated in memory</div></div>",
-      "css": ".ds-editor{background:#242c29;border-radius:5px;overflow:hidden}.ds-field-label{display:block;font-family:'IBM Plex Sans',sans-serif;font-size:13px;padding:13px 16px;color:#eaf0e7;border-bottom:1px solid #3b4540}.ds-sql{font-family:\"IBM Plex Mono\",monospace;font-variant-numeric:tabular-nums;font-size:13px;line-height:1.8;background:transparent;color:#edf3e9;border:0;padding:16px;resize:none;width:90%;height:170px;white-space:pre;overflow:auto;caret-color:#bbcaff}.ds-sql:focus-visible{outline:2px solid #94a9ff;outline-offset:-3px}.ds-editor-foot{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#b7c5ba;padding:11px 16px;border-top:1px solid #3b4540}"
+      "description": "Read-only syntax and selection preview; the live React field synchronizes editable text, highlighting, and gutter scrolling.",
+      "html": "<div class=\"ds-editor\"><label class=\"ds-field-label\" for=\"ds-sql\">migration.sql</label><div class=\"ds-sql-input\"><pre class=\"ds-sql-paint\" aria-hidden=\"true\"><span class=\"ds-sql-keyword\">ALTER TABLE</span> orders <span class=\"ds-sql-keyword\">ADD COLUMN</span> status <span class=\"ds-sql-keyword\">text</span>;</pre><textarea class=\"ds-sql\" id=\"ds-sql\" readonly spellcheck=\"false\" wrap=\"off\">ALTER TABLE orders ADD COLUMN status text;</textarea></div><div class=\"ds-editor-foot\">Editable in the application \u00b7 Ctrl / \u2318 Enter to run</div></div>",
+      "css": ".ds-editor{background:var(--editor,#242c29);border-radius:8px;overflow:hidden}.ds-field-label{display:block;font-family:\"IBM Plex Sans\",sans-serif;font-size:13px;padding:15px 18px;color:#eaf0e7;border-bottom:1px solid #3b4540}.ds-sql-input{position:relative;height:274px;margin-left:16px;overflow:hidden}.ds-sql,.ds-sql-paint{font:14px/1.8 \"IBM Plex Mono\",monospace;font-variant-numeric:tabular-nums;padding:18px 18px 18px 0;white-space:pre;background:transparent;border:0;margin:0}.ds-sql-paint{position:absolute;inset:0;color:var(--editor-text,#edf3e9);pointer-events:none;overflow:hidden}.ds-sql{position:relative;z-index:1;width:100%;height:100%;resize:none;color:transparent;-webkit-text-fill-color:transparent;caret-color:#bbcaff;overflow:auto}.ds-sql:focus-visible{outline:2px solid #94a9ff;outline-offset:-3px}.ds-sql::selection{background:#4a577b;color:#fff;-webkit-text-fill-color:#fff}.ds-sql-keyword{color:#b9c8ff}.ds-sql-string{color:#dce8a7}.ds-sql-number{color:#f5c69e}.ds-sql-comment{color:#a6b9ab}.ds-editor-foot{font-family:\"IBM Plex Sans\",sans-serif;font-size:11px;color:#b7c5ba;padding:11px 16px;border-top:1px solid #3b4540}@media(max-width:760px){.ds-sql-input{height:250px}}@media(max-width:480px){.ds-sql-input{height:220px}.ds-sql,.ds-sql-paint{font-size:13px}}@media(forced-colors:active){.ds-sql{color:CanvasText;-webkit-text-fill-color:CanvasText}.ds-sql-paint{display:none}}"
     },
     {
       "name": "Scenario navigation",
       "kind": "nav",
       "refersTo": "case-selected",
-      "description": "Horizontal choices with sage active treatment.",
+      "description": "Horizontal choices below the hero with sage active treatment.",
       "html": "<nav class=\"ds-scenarios\" aria-label=\"Migration scenarios\"><button class=\"ds-case\" aria-current=\"true\"><strong>Rename a column</strong><small>Mixed application versions</small></button><button class=\"ds-case\"><strong>Change a type</strong><small>Persisted data</small></button></nav>",
-      "css": ".ds-scenarios{display:flex;gap:8px}.ds-case{font-family:'IBM Plex Sans',sans-serif;flex:1;border:1px solid transparent;background:none;color:var(--ink,#232722);padding:12px 16px;border-radius:5px;text-align:left;min-width:0;cursor:pointer}.ds-case[aria-current=\"true\"]{background:#e7eadf;border-color:#d0d6c6}.ds-case strong{display:block;font-size:13px;font-weight:500}.ds-case small{display:block;font-size:12px;color:var(--muted,#626a63);margin-top:4px}.ds-case:hover{filter:brightness(.94)}.ds-case:not([aria-current=\"true\"]):hover{background:#edeee7}.ds-case:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:760px){.ds-case{padding:10px}.ds-case strong,.ds-case small{font-size:12px}}"
+      "css": ".ds-scenarios{display:flex;gap:8px}.ds-case{font-family:'IBM Plex Sans',sans-serif;flex:1;border:1px solid transparent;background:none;color:var(--ink,#232722);padding:14px 16px;border-radius:var(--radius-control,6px);text-align:left;min-width:0;cursor:pointer}.ds-case[aria-current=\"true\"]{background:var(--active-case,#e7eadf);border-color:#c5ccba}.ds-case strong{display:block;font-size:14px;font-weight:500}.ds-case small{display:block;font-size:12px;color:var(--muted,#626a63);margin-top:4px}.ds-case:hover{filter:brightness(.94)}.ds-case:not([aria-current=\"true\"]):hover{background:#edeee7}.ds-case:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:760px){.ds-case{padding:10px}.ds-case strong,.ds-case small{font-size:12px}}"
     },
     {
       "name": "Candidate provenance",
@@ -292,7 +380,7 @@
       "refersTo": "source-label",
       "description": "Noninteractive outlined source label on the dark editor toolbar.",
       "html": "<div class=\"ds-tag-context\"><span class=\"ds-source\">Bob IDE repair</span></div>",
-      "css": ".ds-tag-context{background:#242c29;padding:13px 16px}.ds-source{font-family:'IBM Plex Sans',sans-serif;display:inline-block;color:#c9d2cb;border:1px solid #515c55;font-size:11px;padding:3px 7px;border-radius:3px;white-space:nowrap}@media(max-width:480px){.ds-source{font-size:10px}}"
+      "css": ".ds-tag-context{background:var(--editor,#242c29);padding:13px 16px}.ds-source{font-family:'IBM Plex Sans',sans-serif;display:inline-block;color:#c9d2cb;border:1px solid #515c55;font-size:11px;padding:4px 8px;border-radius:3px;white-space:nowrap}@media(max-width:480px){.ds-source{font-size:10px}}"
     },
     {
       "name": "Experiment container",
@@ -300,7 +388,7 @@
       "refersTo": "experiment",
       "description": "Main worksheet boundary with gently rounded corners.",
       "html": "<section class=\"ds-experiment\"><h2 class=\"ds-title\">Migration rehearsal</h2><p class=\"ds-copy\">Execute a candidate against the sampled application contracts.</p><div class=\"ds-region\">Migration SQL and deployment sequence</div></section>",
-      "css": ".ds-experiment{font-family:'IBM Plex Sans',sans-serif;background:var(--surface,#fcfcf9);color:var(--ink,#232722);border:1px solid var(--line,#d9dcd2);border-radius:8px;overflow:hidden}.ds-title{font-size:22px;font-weight:500;letter-spacing:-.02em;margin:0;padding:24px 28px 0}.ds-copy{font-size:14px;line-height:1.55;color:var(--muted,#626a63);margin:0;padding:8px 28px 22px;max-width:85ch}.ds-region{border-top:1px solid var(--line,#d9dcd2);padding:24px 28px;font-size:14px}"
+      "css": ".ds-experiment{font-family:'IBM Plex Sans',sans-serif;background:var(--surface,#fcfcf9);color:var(--ink,#232722);border:1px solid var(--line,#d9dcd2);border-radius:var(--radius-panel,12px);overflow:hidden}.ds-title{font-size:23px;font-weight:500;letter-spacing:-.02em;margin:0;padding:24px 28px 0}.ds-copy{font-size:15px;line-height:1.55;color:var(--muted,#626a63);margin:0;padding:8px 28px 22px;max-width:85ch}.ds-region{border-top:1px solid var(--line,#d9dcd2);padding:24px 28px;font-size:14px}.ds-experiment:focus-within{border-color:#aeb8a5}"
     },
     {
       "name": "Completed phase",
@@ -308,7 +396,7 @@
       "refersTo": "phase-row",
       "description": "Selected chronological stage with explicit passing status.",
       "html": "<button class=\"ds-phase\"><span class=\"ds-symbol\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><path d=\"m9 12 2 2 4-4\"/></svg></span><span class=\"ds-phase-copy\"><strong>New-version smoke test</strong><small>2/2 checks passed</small></span><span class=\"ds-state\">Passed</span></button>",
-      "css": ".ds-phase{font-family:'IBM Plex Sans',sans-serif;display:flex;width:100%;align-items:center;gap:13px;text-align:left;padding:12px 10px 12px 8px;border:1px solid #d9dfd0;border-radius:4px;min-height:71px;background:#f0f1e9;color:var(--ink,#232722);cursor:pointer}.ds-symbol{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#e3eee4;color:var(--green,#216046);border:1px solid #c6dccb}.ds-phase-copy{flex:1}.ds-phase-copy strong{display:block;font-size:14px;font-weight:500}.ds-phase-copy small{display:block;font-size:12px;color:var(--muted,#626a63);line-height:1.45;margin-top:4px}.ds-state{color:var(--green,#216046);font-size:12px;min-width:68px;text-align:right}.ds-phase:hover{filter:brightness(.94)}.ds-phase:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:480px){.ds-phase{min-height:78px;padding:11px 5px;gap:10px}.ds-phase-copy strong{font-size:13px}.ds-state{min-width:60px}}"
+      "css": ".ds-phase{font-family:'IBM Plex Sans',sans-serif;display:flex;width:100%;align-items:center;gap:13px;text-align:left;padding:12px 10px 12px 8px;border:1px solid #d9dfd0;border-radius:var(--radius-control,6px);min-height:76px;background:#f0f1e9;color:var(--ink,#232722);cursor:pointer}.ds-symbol{width:29px;height:29px;display:grid;place-items:center;border-radius:50%;background:#e3eee4;color:var(--green,#216046);border:1px solid #c6dccb}.ds-phase-copy{flex:1}.ds-phase-copy strong{display:block;font-size:15px;font-weight:500}.ds-phase-copy small{display:block;font-size:12px;color:var(--muted,#626a63);line-height:1.45;margin-top:4px}.ds-state{color:var(--green,#216046);font-size:12px;min-width:68px;text-align:right}.ds-phase:hover{filter:brightness(.94)}.ds-phase:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:480px){.ds-phase{min-height:78px;padding:11px 5px;gap:10px}.ds-phase-copy strong{font-size:13px}.ds-state{min-width:60px}}"
     },
     {
       "name": "Evidence stage",
@@ -316,12 +404,12 @@
       "refersTo": "evidence-stage-selected",
       "description": "Direct evidence switching with a pressed selection.",
       "html": "<button class=\"ds-evidence-stage\" aria-pressed=\"true\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><path d=\"m9 12 2 2 4-4\"/></svg>New-version smoke test</button>",
-      "css": ".ds-evidence-stage{font-family:'IBM Plex Sans',sans-serif;display:flex;align-items:center;gap:6px;font-size:12px;padding:8px 10px;border:1px solid var(--line,#d9dcd2);border-radius:4px;background:transparent;color:var(--ink,#232722);cursor:pointer}.ds-evidence-stage[aria-pressed=\"true\"]{background:var(--ink,#232722);border-color:var(--ink,#232722);color:var(--paper,#f5f4ef)}.ds-evidence-stage svg{width:14px;height:14px}.ds-evidence-stage:hover{filter:brightness(.94)}.ds-evidence-stage:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:760px){.ds-evidence-stage{font-size:11px;padding:8px}}"
+      "css": ".ds-evidence-stage{font-family:'IBM Plex Sans',sans-serif;display:flex;align-items:center;gap:6px;font-size:12px;padding:9px 12px;min-height:40px;border:1px solid var(--line,#d9dcd2);border-radius:4px;background:transparent;color:var(--ink,#232722);cursor:pointer}.ds-evidence-stage[aria-pressed=\"true\"]{background:var(--ink,#232722);border-color:var(--ink,#232722);color:var(--paper,#f5f4ef)}.ds-evidence-stage svg{width:14px;height:14px}.ds-evidence-stage:hover{filter:brightness(.94)}.ds-evidence-stage:focus-visible{outline:2px solid var(--blue,#2446c8);outline-offset:4px}@media(max-width:760px){.ds-evidence-stage{font-size:11px;padding:8px}}"
     }
   ],
   "narrative": {
     "northStar": "The Engineering Verification Worksheet",
-    "overview": "Warm paper, dark ink, and ruled rows make the interface feel like a working engineering document. A horizontal scenario strip preserves room for the paired workbench. The dark SQL surface distinguishes editable code from query evidence, with the primary action placed above it at every size.\n\nThe surface is built directly from type, borders, and semantic color. Results earn their visual emphasis through executed checks. The recurring signature is a chronological phase list paired with inspectable query evidence, including expected and actual output. A compact verdict appears inside the workbench, while the lower evidence area provides stage selection and export.",
+    "overview": "Warm paper, dark ink, and ruled rows make the interface feel like a working engineering document. A horizontal scenario strip follows the hero and preserves room for the paired workbench. The dark SQL surface distinguishes editable code from query evidence, with the primary action placed above it at every size.\n\nThe surface is built directly from type, borders, and semantic color. Results earn their visual emphasis through executed checks. The recurring signature is a chronological phase list paired with inspectable query evidence, including expected and actual output. A compact verdict appears inside the workbench, while the lower evidence area provides stage selection and export.",
     "keyCharacteristics": [
       "Warm neutral surfaces with restrained cobalt actions.",
       "Dark ink SQL editor beside a ruled deployment sequence.",
@@ -351,7 +439,8 @@
       "Do preserve status words and icons alongside semantic color.",
       "Do place the run action above the editor at every viewport size.",
       "Do let SQL scroll internally, stack the workbench on narrow screens, and stack expected and actual output on phones.",
-      "Do retain keyboard focus outlines and respect reduced motion in both CSS and programmatic scrolling."
+      "Do retain keyboard focus outlines and respect reduced motion in both CSS and programmatic scrolling.",
+      "Do keep syntax highlighting separate from input data and preserve explicit selected-text and forced-colors fallbacks."
     ],
     "donts": [
       "Don't present a passing state before a run produces evidence.",

@@ -15,16 +15,22 @@ colors:
   active-case: "#e7eadf"
   pass-wash: "#edf2e7"
   fail-wash: "#f9eee8"
+  sql-keyword: "#b9c8ff"
+  sql-string: "#dce8a7"
+  sql-number: "#f5c69e"
+  sql-comment: "#a6b9ab"
+  sql-selection: "#4a577b"
+  sql-selection-text: "#fff"
 typography:
   display:
     fontFamily: "IBM Plex Sans, sans-serif"
-    fontSize: "42px"
+    fontSize: "clamp(36px, 3.6vw, 52px)"
     fontWeight: 500
-    lineHeight: 1.08
+    lineHeight: 1.12
     letterSpacing: "-.035em"
   headline:
     fontFamily: "IBM Plex Sans, sans-serif"
-    fontSize: "22px"
+    fontSize: "23px"
     fontWeight: 500
     letterSpacing: "-.02em"
   title:
@@ -42,14 +48,20 @@ typography:
     fontWeight: 500
   sql:
     fontFamily: "IBM Plex Mono, monospace"
-    fontSize: "13px"
+    fontSize: "14px"
     fontWeight: 400
     lineHeight: 1.8
+  intro:
+    fontFamily: "IBM Plex Sans, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.55
 rounded:
   tag: "3px"
-  control: "4px"
-  field: "5px"
-  panel: "8px"
+  action: "4px"
+  control: "6px"
+  field: "8px"
+  panel: "12px"
 spacing:
   tight: "8px"
   related: "12px"
@@ -60,13 +72,13 @@ components:
     backgroundColor: "{colors.blue}"
     textColor: "white"
     typography: "{typography.label}"
-    rounded: "{rounded.control}"
+    rounded: "{rounded.action}"
     padding: "13px 20px"
   button-secondary:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.control}"
+    rounded: "{rounded.action}"
     padding: "13px 20px"
   button-text:
     textColor: "{colors.ink}"
@@ -79,12 +91,12 @@ components:
   case-selected:
     backgroundColor: "{colors.active-case}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.field}"
-    padding: "12px 16px"
+    rounded: "{rounded.control}"
+    padding: "14px 16px"
   source-label:
     textColor: "#c9d2cb"
     rounded: "{rounded.tag}"
-    padding: "3px 7px"
+    padding: "4px 8px"
   experiment:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.panel}"
@@ -94,8 +106,8 @@ components:
   evidence-stage-selected:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
-    rounded: "{rounded.control}"
-    padding: "8px 10px"
+    rounded: "{rounded.action}"
+    padding: "9px 12px"
 ---
 
 # Design System: Rehearsal
@@ -104,7 +116,7 @@ components:
 
 **Creative North Star: "The Engineering Verification Worksheet"**
 
-Warm paper, dark ink, and ruled rows make the interface feel like a working engineering document. A horizontal scenario strip preserves room for the paired workbench. The dark SQL surface distinguishes editable code from query evidence, with the primary action placed above it at every size.
+Warm paper, dark ink, and ruled rows make the interface feel like a working engineering document. A horizontal scenario strip follows the hero and preserves room for the paired workbench. The dark SQL surface distinguishes editable code from query evidence, with the primary action placed above it at every size.
 
 The surface is built directly from type, borders, and semantic color. Results earn their visual emphasis through executed checks. The recurring signature is a chronological phase list paired with inspectable query evidence, including expected and actual output. A compact verdict appears inside the workbench, while the lower evidence area provides stage selection and export.
 
@@ -138,6 +150,8 @@ The palette combines warm paper and green-tinted neutrals with purposeful status
 - **Raised paper** (`surface`): workbench and secondary buttons, expressed by tone rather than elevation.
 - **SQL ink** (`editor`, `editor-text`): dark editable code surface and pale SQL text.
 - **Selected sage** (`active-case`): active scenario navigation.
+- **SQL syntax signals** (`sql-keyword`, `sql-string`, `sql-number`, `sql-comment`): display-only code distinctions on the dark field.
+- **SQL selection** (`sql-selection`, `sql-selection-text`): explicit selection background and readable selected text.
 
 **The Evidence Color Rule.** Use green and oxblood for actual pass and failure states, accompanied by text and icons. Cobalt marks actions, focus, and execution in progress.
 
@@ -154,19 +168,20 @@ The pairing has a practical engineering character: medium-weight headings, unemb
 - **Display:** the two-part page headline; its second phrase uses Quiet ink. It flows as a single line on desktop and breaks at the authored boundary on narrow screens.
 - **Headline:** experiment titles; evidence headings use a slightly smaller local size (20px).
 - **Title:** deployment-sequence heading.
-- **Body:** scenario descriptions, report explanations, and query rows. Phase titles share the body size with medium emphasis. Scenario copy stays within a reading measure (85ch); report paragraphs use (75ch).
+- **Intro:** the sentence below the hero uses its own larger reading token.
+- **Body:** report explanations and query rows. Scenario descriptions and medium-weight phase titles use a local size (15px). Scenario copy stays within a reading measure (85ch); report paragraphs use (75ch).
 - **Label:** action names; metadata and stage controls use local compact treatments.
-- **SQL:** editor and synchronized line numbers use the SQL token. Evidence code is also readable fixed-width text, with its own line-height (1.65).
+- **SQL:** editor and synchronized line numbers use the SQL token. Phone editor text uses a smaller local size (13px). Evidence code uses its own size (13px) and line-height (1.65).
 
 **The Two Voices Rule.** Use Plex Sans for the interface and Plex Mono for SQL, query timing, and report metadata.
 
 ## Layout
 
-The centered shell has a maximum width (1364px) and horizontal padding (32px). A horizontal project-and-scenario strip replaces the earlier left rail. The three scenario choices share available width. The masthead is compact (68px), and the main region begins below the strip with modest top padding (28px).
+The centered shell has a maximum width (1364px) and horizontal padding (32px). The main region begins with the fluid hero, followed by the horizontal project-and-scenario strip and then the experiment. The three scenario choices share available width. The masthead has a measured height (76px), and main content begins with top padding (38px). The strip has rules above and below, separating selection from the hero and workbench.
 
-The workbench uses paired columns: the editor receives slightly more proportional width (1.1fr) and the phase column has a minimum width (360px). Both regions have comfortable internal padding (24px 28px). The run action precedes the dark editor toolbar in source order. A verdict banner sits above both columns after execution. Below, the exportable report introduces a ruled query area with wrap-capable stage buttons.
+The workbench uses paired columns: the editor receives slightly more proportional width (1.15fr) and the phase column has a minimum width (380px). Both regions have comfortable internal padding (24px 28px). The run action precedes the dark editor toolbar in source order. The desktop code viewport has more reading depth (274px); it becomes (250px) at the stacking breakpoint. A verdict banner sits above both columns after execution. Below, the exportable report introduces a ruled query area with wrap-capable stage buttons.
 
-At the compact breakpoint (1050px maximum), outer padding contracts (24px), the phase minimum narrows (330px), and the fresh-database note hides. At the stacking breakpoint (760px maximum), project context sits above the three scenario choices, the workbench becomes one column, the headline becomes smaller (40px), and phase rows retain room for status copy (72px minimum). At phone width (480px maximum), outer padding contracts (16px), the headline becomes smaller again (36px), workbench padding contracts (18px), and expected/actual results stack. Phone phase rows have a larger minimum height (78px); the editor is shorter (180px), with internal scrolling retained.
+At the compact breakpoint (1050px maximum), outer padding contracts (24px), the phase minimum narrows (330px), and the fresh-database note hides. At the stacking breakpoint (760px maximum), project context sits above the three scenario choices, the workbench becomes one column, the headline becomes smaller (40px), and phase rows retain room for status copy (72px minimum). At phone width (480px maximum), outer padding contracts (16px), the headline becomes smaller again (36px), workbench padding contracts (18px), and expected/actual results stack. Phone phase rows have a larger minimum height (78px); the editor is shorter (220px), with internal scrolling retained.
 
 Spacing uses compact related groups and larger boundaries. Reused steps appear in frontmatter; component-specific measurements remain local rather than pretending every dimension belongs to a strict mathematical scale.
 
@@ -178,13 +193,13 @@ There are no shadows. Borders, pale surface changes, and exterior margins establ
 
 ## Shapes
 
-The system is nearly rectangular with restrained rounding: compact tags, action buttons, editor corners and scenario choices, then the more gently rounded experiment container. Tokens define these levels. Circular identity and phase marks anchor the ruled document. Borders remain hairline (1px); icons use a light stroke (1.7) and explicit check, cross, and waiting symbols.
+The system is nearly rectangular with restrained rounding: compact tags, action buttons, editor corners and scenario choices, then the more gently rounded experiment container. Tokens define these levels. A softly squared identity mark (9px radius) and circular phase marks anchor the ruled document. Borders remain hairline (1px); icons use a light stroke (1.7) and explicit check, cross, and waiting symbols.
 
 ## Components
 
 ### Buttons
 
-Direct and legible. The primary action uses cobalt with white text; secondary actions use paper with a rule-colored border. Their shape, type, and padding are recorded in frontmatter. Text actions leave the background open. Buttons darken slightly on hover through a brightness filter (.94); background and color transition briefly (.18s). Keyboard focus uses a cobalt outline (2px) with offset (4px) on buttons and links. Disabled controls reduce opacity (.55); unavailable phase rows retain full legibility.
+Direct and legible. The primary action uses cobalt with white text; secondary actions use paper with a rule-colored border. Their shape, type, and padding are recorded in frontmatter. Primary and secondary actions retain the tighter action radius; the general control radius applies to scenario choices and phase rows. Minimum target heights are (46px) for the primary action and (44px) for secondary actions; reference links and evidence-stage buttons have a minimum height (40px). Text actions leave the background open. Buttons darken slightly on hover through a brightness filter (.94); background and color transition briefly (.18s). Keyboard focus uses a cobalt outline (2px) with offset (4px) on buttons and links. Disabled controls reduce opacity (.55); unavailable phase rows retain full legibility.
 
 ### Chips
 
@@ -196,15 +211,15 @@ The experiment is the principal bordered container, with shared internal rules. 
 
 ### Inputs / Fields
 
-The SQL editor is a native labeled textarea in a dark ink region. A file-name toolbar precedes it; synchronized line numbers and a lower metadata strip frame the field. The run/reset actions sit above the toolbar. SQL remains horizontally scrollable and cannot be resized. Its keyboard outline is a lighter blue (2px) drawn inward (offset -3px), preserving visibility against the dark background. Typing changes provenance to Custom candidate; execution disables editing. The rename scenario separately offers Load Bob's repair and Load reference repair.
+The SQL editor is a native labeled textarea in a dark ink region. A file-name toolbar precedes it; synchronized line numbers and a lower metadata strip frame the field. A display-only syntax layer behind the transparent textarea distinguishes keywords, strings, numbers, and comments. Highlighting never transforms the SQL sent to execution. Both axes of the highlight layer and the line-number gutter synchronize with native scrolling. The run/reset actions sit above the toolbar. SQL remains horizontally scrollable and cannot be resized. Its keyboard outline is a lighter blue (2px) drawn inward (offset -3px), preserving visibility against the dark background. Selection explicitly paints the textarea text with the selection-text token over the selection background, keeping selected SQL legible above the highlight layer. Forced-colors mode hides the highlight layer and restores native CanvasText. Ctrl+Enter or Command+Enter runs nonempty SQL when editing is enabled. Typing changes provenance to Custom candidate; execution disables editing. The rename scenario separately offers Load Bob's repair and Load reference repair.
 
 ### Navigation
 
-Three scenario buttons remain visible in a horizontal strip at every size. The active choice has a sage fill, border, and desktop chevron. The project descriptor shifts above them at narrower widths. Selection uses `aria-current`; choices disable during a run.
+Three scenario buttons remain visible in a horizontal strip below the hero at every size. A focus-revealed skip link reaches the main workbench. The active choice has a sage fill, border, and desktop chevron. The project descriptor shifts above them at narrower widths. Selection uses `aria-current`; choices disable during a run.
 
 ### Deployment Sequence and Evidence
 
-Five fixed positions establish chronology. Circular state marks connect along a fine vertical rule; the selected row gains a quiet fill and border. A completed phase exposes View checks. Selecting it scrolls to the query area, where a second set of stage buttons supports direct switching with `aria-pressed`. The selected evidence stage uses dark ink with warm-paper text; other stage buttons retain semantic status icons.
+Five fixed positions establish chronology. Waiting stages display small monospace numbers inside circular state marks; completed states use status icons. These marks connect along a fine vertical rule; the selected row gains a quiet fill and border. A completed phase exposes View checks. Selecting it scrolls to the query area, where a second set of stage buttons supports direct switching with `aria-pressed`. The selected evidence stage uses dark ink with warm-paper text; other stage buttons retain semantic status icons.
 
 Each query row expands SQL, expected output, actual output, and database errors. Expanded rows gain a quiet fill and rotated disclosure chevron. Query rows and report explanations use the body scale on desktop, with modest phone adjustments. The result columns stack on phones to preserve reading width.
 
@@ -219,6 +234,7 @@ The inline summary keeps the verdict beside the candidate. Editing SQL marks res
 - **Do** place the run action above the editor at every viewport size.
 - **Do** let SQL scroll internally, stack the workbench on narrow screens, and stack expected and actual output on phones.
 - **Do** retain keyboard focus outlines and respect reduced motion in both CSS and programmatic scrolling.
+- **Do** keep syntax highlighting separate from input data and preserve explicit selected-text and forced-colors fallbacks.
 
 ### Don't:
 
